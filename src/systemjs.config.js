@@ -21,7 +21,10 @@
       '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
       '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
-      '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+      '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js', 
+      'ng2-pdf-viewer': 'node_modules/ng2-pdf-viewer',
+      'pdfjs-dist': 'node_modules/pdfjs-dist',
+
 
       // other libraries
       'rxjs':                      'npm:rxjs',
@@ -33,13 +36,15 @@
         defaultExtension: 'js',
         meta: {
           './*.js': {
-            loader: 'systemjs-angular-loader.js'
+            loader: 'systemjs-angular-loader.js',
           }
         }
       },
       rxjs: {
         defaultExtension: 'js'
-      }
+      },
+      'ng2-pdf-viewer': { main: 'dist/index.js', defaultExtension: 'js' },
+      'pdfjs-dist': { defaultExtension: 'js' }
     }
   });
 })(this);

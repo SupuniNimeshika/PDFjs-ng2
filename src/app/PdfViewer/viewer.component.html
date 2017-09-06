@@ -1,0 +1,53 @@
+<div class="menu">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#">PDF Viewer</a>
+            </div>
+        </div>
+</div>
+<br/><br/><br/> 
+<div class="row">   
+
+<div class="select-file__container">
+    <input (change)="onFileSelected()" type="file" id="file">
+</div>
+
+<div>
+    <label>Page:</label>
+    <input type="number" placeholder="Page" [(ngModel)]="page">
+</div>
+
+<div>
+<label>Zoom:</label>
+<input type="number" placeholder="zoom" [(ngModel)]="zoom">
+</div>
+
+<button (click)="incrementZoom(-0.1)" class="mdl-button mdl-js-button">
+        -
+</button>
+
+<button (click)="decrementZoom(-0.1)" class="mdl-button mdl-js-button">
+        +
+</button>
+
+<span *ngIf="pdf">of {{ pdf.numPages }}</span>
+<button (click)="incrementPage(1)" class="mdl-button mdl-js-button">
+    Next
+</button>
+
+<button (click)="decrementPage(1)" class="mdl-button mdl-js-button">
+        Previous
+</button>
+
+</div>
+
+
+
+<pdf-viewer [src]="pdfSrc" 
+            [page]="page" 
+            [original-size]="true" 
+            [rotation]="rotation"
+            [zoom]="zoom"
+            style="display: block;"
+            
+></pdf-viewer>
